@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gallery">
+	<insert id="insert" parameterType="galleryDto">
+		INSERT INTO mk_gallery
+		(num, writer, caption, imagePath, regdate)
+		VALUES(mk_gallery_seq.NEXTVAL, #{writer}, #{caption}, #{imagePath},SYSDATE)
+	</insert>
+	<select id="getData" parameterType="int" resultType="galleryDto">
+		SELECT * 
+		FROM
+			(SELECT num, writer, caption, imagePath, regdate,
+				LAG(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum, 
+				LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum 
+			FROM mk_gallery 
+			ORDER BY num DESC)
+		WHERE num=#{num}
+	</select>
+	<select id="getList" parameterType="galleryDto" 
+		resultType="galleryDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM AS rnum
+			FROM
+				(SELECT num,writer,caption,imagePath,regdate
+				FROM mk_gallery
+				ORDER BY num DESC) result1) 
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM mk_gallery
+	</select>
+</mapper>

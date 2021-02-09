@@ -5,8 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.my.insta.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.my.insta.gallery.dto.GalleryDto" alias="galleryDto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/my/insta/mybatis/UsersMapper.xml"/>
+		<mapper resource="com/my/insta/mybatis/GalleryMapper.xml"/>
 	</mappers>
 </configuration>
