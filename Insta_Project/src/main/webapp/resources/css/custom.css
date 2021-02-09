@@ -1,0 +1,4 @@
+/* 고정된 navbar 밑에 최상단 컨텐츠가 숨겨지지 않도록 */
+body{
+	padding-top:60px;
+}

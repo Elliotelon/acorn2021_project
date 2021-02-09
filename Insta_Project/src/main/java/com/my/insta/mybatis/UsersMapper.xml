@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+	<update id="updateProfile" parameterType="usersDto">
+		UPDATE mk_users
+		SET profile=#{profile}
+		WHERE id=#{id}
+	</update>
+	<select id="isExist" parameterType="String"
+	resultType="usersDto">
+		SELECT * 
+		FROM mk_users
+		WHERE id=#{id}
+	</select>
+	<update id="updatePwd" parameterType="usersDto">
+		UPDATE mk_users
+		SET pwd=#{newPwd}
+		WHERE id=#{id}
+	</update>
+	<update id="update" parameterType="usersDto">
+		UPDATE mk_users
+		SET email=#{email}
+		WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM mk_users
+		WHERE id=#{id}
+	</delete>
+	<select id="getData" parameterType="String"
+	resultType="usersDto">
+		<!-- 칼럼명과 필드명이 같아야 하기때문에 AS regdate 붙여야 함. -->
+		SELECT pwd,email,profile,
+			TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate
+		FROM mk_users
+		WHERE id=#{id}
+	</select>
+	<select id="getPwd" parameterType="String" resultType="String">
+		SELECT pwd
+		FROM mk_users
+		WHERE id=#{id}
+	</select>
+	<insert id="insert" parameterType="usersDto">
+		INSERT INTO mk_users
+		(id, pwd, email, regdate)
+		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
+	</insert>
+</mapper>
