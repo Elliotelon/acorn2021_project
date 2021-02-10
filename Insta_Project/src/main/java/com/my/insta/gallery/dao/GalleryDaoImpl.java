@@ -30,9 +30,9 @@ public class GalleryDaoImpl implements GalleryDao{
 	}
 
 	@Override
-	public int getCount() {
+	public int getCount(GalleryDto dto) {
 
-		return session.selectOne("gallery.getCount");
+		return session.selectOne("gallery.getCount",dto);
 	}
 
 }

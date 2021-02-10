@@ -3,7 +3,8 @@ package com.my.insta.gallery.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class GalleryDto {
-	private int num;
+	private int num; //갤러리 글번호
+	private int number; //댓글 번호 
 	private String writer;
 	private String caption;
 	private String imagePath;
@@ -15,10 +16,11 @@ public class GalleryDto {
 	private MultipartFile image;
 	//디폴트 생성자 
 	public GalleryDto() {}
-	public GalleryDto(int num, String writer, String caption, String imagePath, String regdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum, MultipartFile image) {
+	public GalleryDto(int num, int number, String writer, String caption, String imagePath, String regdate,
+			int startRowNum, int endRowNum, int prevNum, int nextNum, MultipartFile image) {
 		super();
 		this.num = num;
+		this.number = number;
 		this.writer = writer;
 		this.caption = caption;
 		this.imagePath = imagePath;
@@ -34,6 +36,12 @@ public class GalleryDto {
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 	public String getWriter() {
 		return writer;
@@ -89,5 +97,6 @@ public class GalleryDto {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
+	
 	
 }

@@ -27,7 +27,7 @@
 				ORDER BY num DESC) result1) 
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
-	<select id="getCount" resultType="int">
+	<select id="getCount" parameterType="galleryDto" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM mk_gallery
 	</select>

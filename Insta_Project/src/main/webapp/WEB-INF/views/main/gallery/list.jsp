@@ -66,6 +66,9 @@
 			transform: rotate(360deg);
 		}
 	}
+	
+	
+	
 </style>
 </head>
 <body>
@@ -78,27 +81,29 @@
 	<h1>겔러리 목록 입니다.</h1>
 	<div class="row" id="galleryList">
 		<c:forEach var="tmp" items="${list }">
-			<div class="col-6 col-md-4 col-lg-3">
+			<div class="col-12 col-md-12 col-lg-12">
 				<div class="card mb-3">
 					<a href="detail.do?num=${tmp.num }">
 						<div class="img-wrapper">
 							<img class="card-img-top" src="${pageContext.request.contextPath }${tmp.imagePath}" />
 						</div>
 					</a>
+					<a href="comment.do?number=${tmp.num}">댓글</a>
 					<div class="card-body">
 						<p class="card-text">${tmp.caption }</p>
 						<p class="card-text">by <strong>${tmp.writer }</strong></p>
 						<p><small>${tmp.regdate }</small></p>
 					</div>
 				</div>
-			</div>		
+			</div>	
 		</c:forEach>
+		
+		
 	</div>
 </div>
-<div class="back-drop">
-	<img src="${pageContext.request.contextPath }/svg/spinner-solid.svg"/>
-</div>
+
 <script>
+	
 	// card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 
 	$(".img-wrapper").imgLiquid();
 	
@@ -151,6 +156,8 @@
 			});
 		}
 	});
+	
+	
 </script>
 </body>
 </html>
