@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/main/gallery/comment.jsp</title>
+<title>/cafe/detail.jsp</title>
 <jsp:include page="../../include/resource.jsp"></jsp:include>
 <style>
 	/* 글 내용을 출력할 div 에 적용할 css */
@@ -92,26 +92,11 @@
 </style>
 </head>
 <body>
-<jsp:include page="../../include/navbar.jsp">
-	<jsp:param value="cafe" name="thisPage"/>
-</jsp:include>
-<div class="container">
-	<nav>
-		<ul class="breadcrumb">
-			<li class="breadcrumb-item">
-				<a href="${pageContext.request.contextPath }/">Home</a>
-			</li>
-			<li class="breadcrumb-item">
-				<a href="${pageContext.request.contextPath }/cafe/list.do">글목록</a>
-			</li>
-			<li class="breadcrumb-item active">상세보기</li>
-		</ul>
-	</nav>	
-	
+<div class="container">	
 	<!-- 원글에 댓글을 작성하는 form -->
 	<form class="comment-form insert-form" action="private/comment_insert.do" method="post">
 		<!-- 원글의 글번호가 ref_group 번호가 된다. -->
-		<input type="hidden" name="ref_group" value="${number }"/>
+		<input type="hidden" name="ref_group" value="${dto.num }"/>
 		<!-- 원글의 작성자가 댓글의 수신자가 된다. -->
 		<input type="hidden" name="target_id" value="${dto.writer }"/>
 		<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다</c:if></textarea>
@@ -126,8 +111,8 @@
 						<li>삭제된 댓글 입니다.</li>
 					</c:when>
 					<c:otherwise>
-						<li id="comment${tmp.number }" <c:if test="${tmp.number ne tmp.comment_group }">style="padding-left:50px;"</c:if>>
-							<c:if test="${tmp.number ne tmp.comment_group }"><svg class="reply-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<li id="comment${tmp.num }" <c:if test="${tmp.num ne tmp.comment_group }">style="padding-left:50px;"</c:if>>
+							<c:if test="${tmp.num ne tmp.comment_group }"><svg class="reply-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 		  						<path fill-rule="evenodd" d="M10.146 5.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 9l-2.647-2.646a.5.5 0 0 1 0-.708z"/>
 		  						<path fill-rule="evenodd" d="M3 2.5a.5.5 0 0 0-.5.5v4A2.5 2.5 0 0 0 5 9.5h8.5a.5.5 0 0 0 0-1H5A1.5 1.5 0 0 1 3.5 7V3a.5.5 0 0 0-.5-.5z"/></svg>
 							</c:if>
@@ -145,14 +130,14 @@
 										</c:otherwise>
 									</c:choose>
 									<span>${tmp.writer }</span>
-									<c:if test="${tmp.number ne tmp.comment_group }">
+									<c:if test="${tmp.num ne tmp.comment_group }">
 										@<i>${tmp.target_id }</i>
 									</c:if>
 									<span>${tmp.regdate }</span>
-									<a data-num="${tmp.number }" href="javascript:" class="reply-link">답글</a>
+									<a data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
 									<c:if test="${tmp.writer eq id }">
-										| <a data-num="${tmp.number }" href="javascript:" class="comment-update-link">수정</a>
-										| <a data-num="${tmp.number }" href="javascript:" class="comment-delete-link">삭제</a>
+										| <a data-num="${tmp.num }" href="javascript:" class="comment-update-link">수정</a>
+										| <a data-num="${tmp.num }" href="javascript:" class="comment-delete-link">삭제</a>
 									</c:if>
 								</dt>
 								<dd>
@@ -162,7 +147,7 @@
 							<form class="comment-form re-insert-form" 
 								action="private/comment_insert.do" method="post">
 								<input type="hidden" name="ref_group"
-									value="${dto.number }"/>
+									value="${dto.num }"/>
 								<input type="hidden" name="target_id"
 									value="${tmp.writer }"/>
 								<input type="hidden" name="comment_group"
@@ -174,7 +159,7 @@
 							<c:if test="${tmp.writer eq id }">
 								<form class="comment-form update-form" 
 									action="private/comment_update.do" method="post">
-									<input type="hidden" name="number" value="${tmp.number }"/>
+									<input type="hidden" name="num" value="${tmp.num }"/>
 									<textarea name="content">${tmp.content }</textarea>
 									<button type="submit">수정</button>
 								</form>
@@ -210,7 +195,7 @@
 		$(this).ajaxSubmit(function(data){
 			//console.log(data);
 			//수정이 일어난 댓글의 li 요소를 선택해서 원하는 작업을 한다.
-			var selector="#comment"+data.number; //"#comment6" 형식의 선택자 구성
+			var selector="#comment"+data.num; //"#comment6" 형식의 선택자 구성
 			
 			//댓글 수정 폼을 안보이게 한다. 
 			$(selector).find(".update-form").slideUp();
@@ -223,11 +208,11 @@
 	
 	$(document).on("click",".comment-delete-link", function(){
 		//삭제할 글번호 
-		var number=$(this).attr("data-num");
+		var num=$(this).attr("data-num");
 		var isDelete=confirm("댓글을 삭제 하시겠습니까?");
 		if(isDelete){
 			location.href="${pageContext.request.contextPath }"+
-			"/main/gallery/private/comment_delete.do?number="+number+"&ref_group=${dto.number}";
+			"/main/gallery/private/comment_delete.do?num="+num+"&ref_group=${dto.num}";
 		}
 	});
 	//답글 달기 링크를 클릭했을때 실행할 함수 등록
@@ -257,14 +242,14 @@
 		if(isLogin == false){
 			alert("로그인 페이지로 이동합니다.")
 			location.href="${pageContext.request.contextPath }/users/loginform.do?"+
-					"url=${pageContext.request.contextPath }/cafe/detail.do?number=${dto.number}";
+					"url=${pageContext.request.contextPath }/cafe/detail.do?num=${dto.num}";
 			return false; //폼 전송 막기 		
 		}
 	});
 	function deleteConfirm(){
 		var isDelete=confirm("이 글을 삭제 하시겠습니까?");
 		if(isDelete){
-			location.href="delete.do?number=${dto.number}";
+			location.href="delete.do?num=${dto.num}";
 		}
 	}
 	

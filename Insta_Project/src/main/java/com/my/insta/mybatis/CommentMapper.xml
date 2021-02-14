@@ -18,18 +18,18 @@
 	<insert id="insert" parameterType="commentDto">
 		INSERT INTO mk_comment
 		(num, writer, content, target_id, ref_group, comment_group, regdate)
-		VALUES(#{number}, #{writer}, #{content}, #{target_id}, #{ref_group},
+		VALUES(#{num}, #{writer}, #{content}, #{target_id}, #{ref_group},
 			#{comment_group}, SYSDATE)
 	</insert>
 	<update id="update" parameterType="commentDto">
 		UPDATE mk_comment
 		SET content=#{content}
-		WHERE num=#{number}
+		WHERE num=#{num}
 	</update>
 	<update id="delete" parameterType="int">
 		UPDATE mk_comment
 		SET deleted='yes'
-		WHERE num=#{number}
+		WHERE num=#{num}
 	</update>
 	<select id="getSequence" resultType="int">
 		SELECT mk_comment_seq.NEXTVAL
@@ -38,7 +38,7 @@
 	<select id="getData" parameterType="int" resultType="commentDto">
 		SELECT num,writer,content,ref_group,comment_group,deleted,regdate
 		FROM mk_comment
-		WHERE num=#{number}
+		WHERE num=#{num}
 	</select>
 	<select id="getCount" parameterType="int" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)

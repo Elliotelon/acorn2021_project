@@ -109,9 +109,9 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public void getDetail(int number, ModelAndView mView) {
+	public void getDetail(int num, ModelAndView mView) {
 		//글번호를 이용해서 글정보를 얻어오고 
-		GalleryDto dto=galleryDao.getData(number);
+		GalleryDto dto=galleryDao.getData(num);
 		//글정보를 ModelAndView 객체에 담고
 		mView.addObject("dto", dto);
 		//글 조회수를 증가 시킨다.
@@ -129,7 +129,7 @@ public class CommentServiceImpl implements CommentService{
 
 		//전체 row 의 갯수를 읽어온다.
 		//자세히 보여줄 글의 번호가 ref_group  번호 이다. 
-		int totalRow=commentDao.getCount(number);
+		int totalRow=commentDao.getCount(num);
 		//전체 페이지의 갯수 구하기
 		int totalPageCount=
 				(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);
@@ -139,14 +139,14 @@ public class CommentServiceImpl implements CommentService{
 		commentDto.setStartRowNum(startRowNum);
 		commentDto.setEndRowNum(endRowNum);
 		//ref_group 번호도 담는다.
-		commentDto.setRef_group(number);
+		commentDto.setRef_group(num);
 
 		//DB 에서 댓글 목록을 얻어온다.
 		List<CommentDto> commentList=commentDao.getList(commentDto);
 		//ModelAndView 객체에 댓글 목록도 담아준다.
 		mView.addObject("commentList", commentList);
 		mView.addObject("totalPageCount", totalPageCount);
-		mView.addObject("number", number);
+		
 	}
 
 	
@@ -169,7 +169,7 @@ public class CommentServiceImpl implements CommentService{
 		int seq=commentDao.getSequence();
 		//저장할 새 댓글 정보를 dto 에 담기
 		CommentDto dto=new CommentDto();
-		dto.setNumber(seq);
+		dto.setNum(seq);
 		dto.setWriter(writer);
 		dto.setTarget_id(target_id);
 		dto.setContent(content);
@@ -188,15 +188,15 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public void deleteComment(HttpServletRequest request) {
 		//GET 방식 파라미터로 전달되는 삭제할 댓글 번호 
-		int number=Integer.parseInt(request.getParameter("number"));
+		int num=Integer.parseInt(request.getParameter("num"));
 		//세션에 저장된 로그인된 아이디
 		String id=(String)request.getSession().getAttribute("id");
 		//댓글의 정보를 얻어와서 댓글의 작성자와 같은지 비교 한다.
-		String writer=commentDao.getData(number).getWriter();
+		String writer=commentDao.getData(num).getWriter();
 		/*if(!writer.equals(id)) {
 			throw new DBFailException("남의 댓글을 삭제할수 없습니다.");
 			}*/
-			commentDao.delete(number);
+			commentDao.delete(num);
 		}
 
 	@Override

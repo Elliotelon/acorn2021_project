@@ -13,13 +13,13 @@
 		<div class="collapse navbar-collapse" id="topNav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item ${param.thisPage eq 'cafe' ? 'active':'' }">
-					<a class="nav-link" href="${pageContext.request.contextPath }/cafe/list.do">글목록</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/main/cafe/list.do">글목록</a>
 				</li>
 				<li class="nav-item ${param.thisPage eq 'file' ? 'active':'' }">
-					<a class="nav-link" href="${pageContext.request.contextPath }/file/list.do">자료실</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/main/file/list.do">자료실</a>
 				</li>
 				<li class="nav-item ${param.thisPage eq 'gallery' ? 'active':'' }">
-					<a class="nav-link" href="${pageContext.request.contextPath }/gallery/list.do">갤러리</a>
+					<a class="nav-link" href="${pageContext.request.contextPath }/main/gallery/list.do">갤러리</a>
 				</li>
 			</ul>
 			<c:choose>

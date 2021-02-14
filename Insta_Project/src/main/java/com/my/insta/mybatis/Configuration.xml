@@ -7,10 +7,12 @@
 		<typeAlias type="com.my.insta.users.dto.UsersDto" alias="usersDto"/>
 		<typeAlias type="com.my.insta.gallery.dto.GalleryDto" alias="galleryDto"/>
 		<typeAlias type="com.my.insta.comment.dto.CommentDto" alias="commentDto"/>
+		<typeAlias type="com.my.insta.file.dto.FileDto" alias="fileDto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/my/insta/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/my/insta/mybatis/GalleryMapper.xml"/>
 		<mapper resource="com/my/insta/mybatis/CommentMapper.xml"/>
+		<mapper resource="com/my/insta/mybatis/FileMapper.xml"/>
 	</mappers>
 </configuration>

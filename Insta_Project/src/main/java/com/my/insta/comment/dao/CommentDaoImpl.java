@@ -29,9 +29,9 @@ public class CommentDaoImpl implements CommentDao{
 	}
 
 	@Override
-	public void delete(int number) {
+	public void delete(int num) {
 		//댓글 삭제는 deleted 칼럼의 내용을 'yes' 로 수정하는 작업을 한다. 
-		session.update("comment.delete", number);
+		session.update("comment.delete", num);
 	}
 	/*
 	 *  새로운 댓글을 저장한 직후에 바로 해당 댓글의 번호가 필요 하기 때문에
@@ -49,8 +49,8 @@ public class CommentDaoImpl implements CommentDao{
 	}
 
 	@Override
-	public CommentDto getData(int number) {
-		return session.selectOne("comment.getData", number);
+	public CommentDto getData(int num) {
+		return session.selectOne("comment.getData", num);
 	}
 	
 	@Override

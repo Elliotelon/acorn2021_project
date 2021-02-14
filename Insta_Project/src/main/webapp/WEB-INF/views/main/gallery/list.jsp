@@ -67,6 +67,87 @@
 		}
 	}
 	
+	/* 여기서부터 댓글 css 글 내용을 출력할 div 에 적용할 css */
+	.contents{
+		width: 100%;
+		border: 1px dotted #cecece;
+	}
+	/* 댓글 프로필 이미지를 작은 원형으로 만든다. */
+	.profile-image{
+		width: 50px;
+		height: 50px;
+		border: 1px solid #cecece;
+		border-radius: 50%;
+	}
+	/* ul 요소의 기본 스타일 제거 */
+	.comments ul{
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+	.comments dt{
+		margin-top: 5px;
+	}
+	.comments dd{
+		margin-left: 50px;
+	}
+	.comment-form textarea, .comment-form button{
+		float: left;
+	}
+	.comments li{
+		clear: left;
+	}
+	.comments ul li{
+		border-top: 1px solid #888;
+	}
+	.comment-form textarea{
+		width: 85%;
+		height: 100px;
+	}
+	.comment-form button{
+		width: 15%;
+		height: 100px;
+	}
+	/* 댓글에 댓글을 다는 폼과 수정폼은 일단 숨긴다. */
+	.comments .comment-form{
+		display: none;
+	}
+	/* .reply_icon 을 li 요소를 기준으로 배치 하기 */
+	.comments li{
+		position: relative;
+	}
+	.comments .reply-icon{
+		position: absolute;
+		top: 1em;
+		left: 1em;
+		color: red;
+	}
+	pre {
+	  display: block;
+	  padding: 9.5px;
+	  margin: 0 0 10px;
+	  font-size: 13px;
+	  line-height: 1.42857143;
+	  color: #333333;
+	  word-break: break-all;
+	  word-wrap: break-word;
+	  background-color: #f5f5f5;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	}
+	/* 글 내용중에 이미지가 있으면 최대 폭을 100%로 제한하기 */
+	.contents img{
+		max-width: 100%;
+	}
+	.loader{
+		position: fixed; /* 좌하단 고정된 위치에 배치 하기 위해 */
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		text-align: center; /* 이미지를 좌우로 가운데  정렬 */
+		z-index: 1000;
+		display: none; /* 일단 숨겨 놓기 */
+	}	
 	
 	
 </style>
@@ -81,28 +162,29 @@
 	<h1>겔러리 목록 입니다.</h1>
 	<div class="row" id="galleryList">
 		<c:forEach var="tmp" items="${list }">
-			<div class="col-12 col-md-12 col-lg-12">
+			<div class="col-6">
 				<div class="card mb-3">
-					<a href="detail.do?num=${tmp.num }">
+					<a href="comment.do?num=${tmp.num }">
 						<div class="img-wrapper">
 							<img class="card-img-top" src="${pageContext.request.contextPath }${tmp.imagePath}" />
 						</div>
 					</a>
-					<a href="comment.do?number=${tmp.num}">댓글</a>
 					<div class="card-body">
 						<p class="card-text">${tmp.caption }</p>
 						<p class="card-text">by <strong>${tmp.writer }</strong></p>
 						<p><small>${tmp.regdate }</small></p>
 					</div>
 				</div>
-			</div>	
+		
+				<a href="comment.do?num=${tmp.num}">댓글</a>
+				
+			</div>
 		</c:forEach>
-		
-		
-	</div>
+	</div>	
 </div>
-
+<script src="${pageContext.request.contextPath }/resources/js/jquery.form.min.js"></script>
 <script>
+	//댓글 스크립트
 	
 	// card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 
 	$(".img-wrapper").imgLiquid();
@@ -154,6 +236,7 @@
 					isLoading=false;
 				}
 			});
+			
 		}
 	});
 	

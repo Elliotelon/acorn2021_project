@@ -1,7 +1,7 @@
 package com.my.insta.comment.dto;
 
 public class CommentDto {
-	private int number;
+	private int num;
 	private String writer;
 	private String content;
 	private String target_id; //댓글 대상자
@@ -16,10 +16,10 @@ public class CommentDto {
 	//디폴트 생성자
 	public CommentDto() {}
 
-	public CommentDto(int number, String writer, String content, String target_id, int ref_group, int comment_group,
+	public CommentDto(int num, String writer, String content, String target_id, int ref_group, int comment_group,
 			String deleted, String regdate, String profile, int startRowNum, int endRowNum) {
 		super();
-		this.number = number;
+		this.num = num;
 		this.writer = writer;
 		this.content = content;
 		this.target_id = target_id;
@@ -32,12 +32,12 @@ public class CommentDto {
 		this.endRowNum = endRowNum;
 	}
 
-	public int getNumber() {
-		return number;
+	public int getNum() {
+		return num;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getWriter() {

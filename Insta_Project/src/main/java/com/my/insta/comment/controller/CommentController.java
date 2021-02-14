@@ -41,7 +41,7 @@ public class CommentController {
 		service.updateComment(dto);
 		//JSON 문자열을 클라이언트에게 응답한다.
 		Map<String, Object> map=new HashMap();
-		map.put("number", dto.getNumber());
+		map.put("num", dto.getNum());
 		map.put("content", dto.getContent());
 		return map;
 	}
@@ -50,7 +50,7 @@ public class CommentController {
 	public ModelAndView commentDelete(HttpServletRequest request,
 			ModelAndView mView, @RequestParam int ref_group) {
 		service.deleteComment(request);
-		mView.setViewName("redirect:/main/gallery/comment.do?number="+ref_group);
+		mView.setViewName("redirect:/main/gallery/comment.do?num="+ref_group);
 		return mView;
 	}
 	
@@ -63,20 +63,16 @@ public class CommentController {
 		service.saveComment(request);
 		//글 자세히 보기로 다시 리다일렉트 이동 시킨다.
 		//ref_group 은 자세히 보기 했던 글번호 
-		return "redirect:/main/gallery/comment.do?number="+ref_group;
+		return "redirect:/main/gallery/comment.do?num="+ref_group;
 	}
-	
 	
 	@RequestMapping("/main/gallery/comment")
-	public ModelAndView comment(@RequestParam int number, ModelAndView mView) {
+	public ModelAndView comment(@RequestParam int num, ModelAndView mView) {
 		//자세히 보여줄 글번호가 파라미터로 넘어온다.
-		service.getDetail(number, mView);
+		service.getDetail(num, mView);
 		//view page 로 forward 이동해서 응답
-		mView.setViewName("main/gallery/comment");
+		mView.setViewName("main/gallery/detail");
 		return mView;
 	}
-	
-	
-	
 	
 }
