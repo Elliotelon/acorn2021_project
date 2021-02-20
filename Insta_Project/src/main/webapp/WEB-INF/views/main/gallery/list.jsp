@@ -175,9 +175,7 @@
 						<p><small>${tmp.regdate }</small></p>
 					</div>
 				</div>
-		
 				<a href="comment.do?num=${tmp.num}">댓글</a>
-				
 			</div>
 		</c:forEach>
 	</div>	
