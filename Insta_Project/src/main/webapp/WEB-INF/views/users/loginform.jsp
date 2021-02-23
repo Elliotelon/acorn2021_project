@@ -59,8 +59,9 @@
 <form class="form-signin" action="login.do" method="post">
 	<%-- 원래 가려던 목적지 정보를 url 이라는 파라미터 명으로 전송될수 있도록 한다. --%>
 	<input type="hidden" name="url" value="${requestScope.url}"/>
-	
-  	<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+	<div class="text-center mb-3">
+        <h1 class="blog-header-logo text-dark">#HashTag</h1>
+    </div>
   	
   	<label for="id" class="sr-only">아이디</label>
   	<input type="text" id="id" name="id" class="form-control" 
@@ -75,9 +76,12 @@
 	      <input type="checkbox" name="isSave" value="yes"> 로그인 정보 저장
 	    </label>
 	</div>
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	<a href="signup_form.do">Sign up</a>
-	<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+	<button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+	
+	<a class="btn btn-lg btn-primary btn-block" href="signup_form.do">회원가입</a>
+	<p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+	<jsp:include page="../include/blogfooter.jsp"></jsp:include>
 </form>
 </body>
+
 </html>

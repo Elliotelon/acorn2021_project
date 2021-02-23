@@ -17,6 +17,12 @@
 </head>
 <body>
 <div class="container" id="con">
+	<%-- 만일 검색 키워드가 존재한다면 몇개의 글이 검색 되었는지 알려준다. --%>
+	<c:if test="${not empty keyword}">
+		<div class="alert alert-info" style="width:275px">
+			<strong>${totalRow}</strong> 개의 자료가 검색 되었습니다.
+		</div>
+	</c:if>
 	<table class="table table-hover table-sm">
 		<thead class="thead-dark">
 			<tr>
@@ -35,7 +41,7 @@
 				<td>${tmp.num }</td>
 				<td>${tmp.writer }</td>
 				<td>${tmp.title }</td>
-				<td><a color:#5991A8"; href="download.do?num=${tmp.num }">${tmp.orgFileName }</a></td>
+				<td><a style="color:#5991A8"; href="download.do?num=${tmp.num }">${tmp.orgFileName }</a></td>
 				<td><fmt:formatNumber value="${tmp.fileSize }" pattern="#,###"/> byte</td>
 				<td>${tmp.regdate }</td>
 				<td>
@@ -74,12 +80,14 @@
 			<c:choose>
 				<c:when test="${i eq pageNum }">
 					<li class="page-item active">
-						<a class="page-link" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+						<a class="page-link" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }"
+						style='color:black${i==pageNum ? "; background-color:#EAEAEA; border-color:#EAEAEA":""}'>${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li class="page-item">
-						<a class="page-link" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+						<a class="page-link" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }"
+						style='color:black';>${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
@@ -87,7 +95,8 @@
 		<c:choose>
 			<c:when test="${endPageNum lt totalPageCount }">
 				<li class="page-item">
-					<a class="page-link" href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedK }">></a>
+					<a class="page-link" href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedK }"
+					style='color:black';>></a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -100,7 +109,7 @@
 	</nav>
 	<form class="form-inline mb-5" action="list.do" method="get">
 		<label class="input-group-text" for="condition">검색조건</label>
-		<select class="custom-select" name="condition" id="condition">
+		<select class="custom-select ml-1" name="condition" id="condition">
 			<option value="title_filename" ${condition eq 'title_filename' ? 'selected' : '' }>제목+파일명</option>
 			<option value="title" ${condition eq 'title' ? 'selected' : '' }>제목</option>
 			<option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>

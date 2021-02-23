@@ -94,6 +94,7 @@ public class FileServiceImpl implements FileService{
 		request.setAttribute("condition", condition);
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("encodedK", encodedK);		
+		request.setAttribute("totalRow", totalRow);		
 	}
 
 	@Override
