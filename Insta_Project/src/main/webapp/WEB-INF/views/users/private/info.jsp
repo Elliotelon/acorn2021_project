@@ -23,7 +23,6 @@
 </head>
 <body>
 <div class="container" id="con">
-	<h1>가입 정보 입니다.</h1>
 	<table class="table table-striped">
 		<colgroup >
 			<col width="150"/>
@@ -80,4 +79,5 @@
 	}
 </script>
 </body>
+<jsp:include page="../../include/blogfooter.jsp"></jsp:include>
 </html>
