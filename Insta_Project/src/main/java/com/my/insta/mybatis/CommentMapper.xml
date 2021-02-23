@@ -9,8 +9,8 @@
 				(SELECT num, writer, content, target_id, ref_group,
 					comment_group, deleted, mk_comment.regdate, profile
 				FROM mk_comment
-				INNER JOIN users
-				ON mk_comment.writer=users.id
+				INNER JOIN mk_users
+				ON mk_comment.writer=mk_users.id
 				WHERE ref_group=#{ref_group}
 				ORDER BY comment_group DESC, num ASC) result1)
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}	

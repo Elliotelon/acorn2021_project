@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>/gallery/list.jsp</title>
 <jsp:include page="../../include/resource.jsp"></jsp:include>
+<jsp:include page="../../include/blogbasic.jsp"></jsp:include>
 <!-- 
 	jquery 플러그인 imgLiquid.js 로딩하기
 	- 반드시 jquery.js 가 먼저 로딩이 되어 있어야지만 동작한다.
@@ -149,17 +150,16 @@
 		display: none; /* 일단 숨겨 놓기 */
 	}	
 	
+	#con{
+		margin-top:5rem;
+	}
 	
 </style>
 </head>
 <body>
-<jsp:include page="../../include/navbar.jsp">
-	<jsp:param value="gallery" name="thisPage"/>
-</jsp:include>
-<div class="container">
+
+<div class="container" id="con">
 	<a href="private/upload_form.do">사진 업로드 하러 가기</a><br/>
-	<a href="private/ajax_form.do">사진 업로드 하러 가기2</a>
-	<h1>겔러리 목록 입니다.</h1>
 	<div class="row" id="galleryList">
 		<c:forEach var="tmp" items="${list }">
 			<div class="col-6">
@@ -179,6 +179,9 @@
 			</div>
 		</c:forEach>
 	</div>	
+</div>
+<div class="back-drop">
+	<img src="${pageContext.request.contextPath }/svg/spinner-solid.svg"/>
 </div>
 <script src="${pageContext.request.contextPath }/resources/js/jquery.form.min.js"></script>
 <script>
@@ -237,9 +240,8 @@
 			
 		}
 	});
-	
-	
 </script>
 </body>
+<jsp:include page="../../include/blogfooter.jsp"></jsp:include>
 </html>
 

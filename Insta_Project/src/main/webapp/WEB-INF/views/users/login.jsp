@@ -18,10 +18,10 @@
 			</p>
 		</c:when>
 		<c:otherwise>
-		<p>
-			아이디 혹은 비밀번호가 틀려요!
-			<a href="loginform.do?url=${encodedUrl}">다시시도</a>
-		</p>
+			<p>
+				아이디 혹은 비밀번호가 틀려요!
+				<a href="loginform.do?url=${encodedUrl}">다시시도</a>
+			</p>
 		</c:otherwise>
 	</c:choose>
 </div>

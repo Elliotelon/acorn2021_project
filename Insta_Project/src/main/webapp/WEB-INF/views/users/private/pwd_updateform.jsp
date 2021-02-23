@@ -5,10 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>/users/private/pwd_updateform.jsp</title>
+<jsp:include page="../../include/resource.jsp"></jsp:include>
+<jsp:include page="../../include/blogbasic.jsp"></jsp:include>
+<style>
+	#con{
+		margin-top:5rem;
+	}
+	.form-group{
+		width:20rem;
+	}
+</style>
 </head>
 <body>
-<div class="container">
-	<h1>비밀번호 수정 폼</h1>
+<div class="container" id="con">
 	<form action="pwd_update.do" method="post" id="myForm">
 		<div>
 			<label for="pwd">기존 비밀번호</label>
@@ -22,8 +31,8 @@
 			<label for="newPwd2">새 비밀번호 확인</label>
 			<input type="password" id="newPwd2"/>
 		</div>
-		<button type="submit">수정하기</button>
-		<button type="reset">리셋</button>
+		<button class="btn btn-success btn-xs" type="submit">수정</button>
+		<button class="btn btn-warning btn-xs" type="reset">리셋</button>
 	</form>
 </div>
 <script>
@@ -40,4 +49,5 @@
 	});
 </script>
 </body>
+	<jsp:include page="../../include/blogfooter.jsp"></jsp:include>
 </html>

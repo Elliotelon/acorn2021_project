@@ -11,16 +11,17 @@
 <div class="container">
 	<c:choose>
 		<c:when test="${isSuccess}"> <!-- ModelAndView에 담긴건 requestScope에 담김 -->
-			<p>
-				비밀번호를 수정했습니다.
-				<a href="../loginform.do">다시 로그인 하기</a>
-			</p>
+			<script>
+				alert("비밀번호가 변경되었습니다.");
+				location.href="../loginform.do";
+			</script>
+			
 		</c:when>
 		<c:otherwise>
-			<p>
-				이전 비밀번호가 일치 하지 않습니다.
-				<a href="pwd_updateform.do">다시 시도</a>
-			</p>
+			<script>
+				alert("이전 비밀번호가 일치하지 않습니다.")
+				location.href="pwd_updateform.do";
+			</script>
 		</c:otherwise>
 	</c:choose>
 </div>

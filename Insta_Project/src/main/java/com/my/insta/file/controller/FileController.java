@@ -41,7 +41,7 @@ public class FileController {
 	public ModelAndView upload(FileDto dto, ModelAndView mView, 
 			HttpServletRequest request) {
 		fileService.saveFile(dto, mView, request);
-		mView.setViewName("main/file/private/upload");
+		mView.setViewName("redirect:/main/file/list.do");
 		return mView;
 	}
 	

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>/gallery/detail.jsp</title>
 <jsp:include page="../../include/resource.jsp"></jsp:include>
+<jsp:include page="../../include/blogbasic.jsp"></jsp:include>
 <style>
 	/* 글 내용을 출력할 div 에 적용할 css */
 	.contents{
@@ -89,24 +90,13 @@
 		z-index: 1000;
 		display: none; /* 일단 숨겨 놓기 */
 	}	
+	#con{
+		margin-top:5rem;
+	}
 </style>
 </head>
 <body>
-<jsp:include page="../../include/navbar.jsp">
-	<jsp:param value="gallery" name="thisPage"/>
-</jsp:include>
-<div class="container">
-	<nav>
-		<ul class="breadcrumb">
-			<li class="breadcrumb-item">
-				<a href="${pageContext.request.contextPath }/">Home</a>
-			</li>
-			<li class="breadcrumb-item">
-				<a href="${pageContext.request.contextPath }/gallery/list.do">겔러리 목록</a>
-			</li>
-			<li class="breadcrumb-item active">상세보기</li>
-		</ul>
-	</nav>
+<div class="container" id="con">
 	<div class="card mb-3">
 		<img class="card-img-top" src="${pageContext.request.contextPath }${dto.imagePath}"/>
 		<div class="card-body">
@@ -377,4 +367,5 @@
 	});			
 </script>
 </body>
+<jsp:include page="../../include/blogfooter.jsp"></jsp:include>
 </html>
