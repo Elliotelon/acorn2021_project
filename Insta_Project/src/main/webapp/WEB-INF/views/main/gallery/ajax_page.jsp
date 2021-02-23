@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:forEach var="tmp" items="${list }">
-	<div class="col-6">
+	<div class="col-6 col-md-4 col-lg-3">
 		<div class="card mb-3">
 			<a href="detail.do?num=${tmp.num }">
 				<div class="img-wrapper page-${requestScope.pageNum }">
@@ -15,7 +15,5 @@
 				<p><small>${tmp.regdate }</small></p>
 			</div>
 		</div>
-		<a href="comment.do?num=${tmp.num}">댓글</a>	
-		
 	</div>		
 </c:forEach>

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>/gallery/list.jsp</title>
 <jsp:include page="../../include/resource.jsp"></jsp:include>
-<jsp:include page="../../include/blogbasic.jsp"></jsp:include>
+<jsp:include page="../../include/blogbasic2.jsp"></jsp:include>
 <!-- 
 	jquery 플러그인 imgLiquid.js 로딩하기
 	- 반드시 jquery.js 가 먼저 로딩이 되어 있어야지만 동작한다.
@@ -153,16 +153,14 @@
 	#con{
 		margin-top:5rem;
 	}
-	
 </style>
 </head>
 <body>
 
 <div class="container" id="con">
-	<a href="private/upload_form.do">사진 업로드 하러 가기</a><br/>
 	<div class="row" id="galleryList">
 		<c:forEach var="tmp" items="${list }">
-			<div class="col-6">
+			<div class="col-6 col-md-4 col-lg-3">
 				<div class="card mb-3">
 					<a href="comment.do?num=${tmp.num }">
 						<div class="img-wrapper">
@@ -175,7 +173,6 @@
 						<p><small>${tmp.regdate }</small></p>
 					</div>
 				</div>
-				<a href="comment.do?num=${tmp.num}">댓글</a>
 			</div>
 		</c:forEach>
 	</div>	

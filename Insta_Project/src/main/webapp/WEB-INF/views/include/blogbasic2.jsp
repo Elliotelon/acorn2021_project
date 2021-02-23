@@ -27,6 +27,7 @@
 	        	</a>
 				<c:choose>
 					<c:when test="${not empty sessionScope.id }">
+						<a class="btn btn-sm btn-outline-success" href="${pageContext.request.contextPath}/main/gallery/private/upload_form.do">업로드</a>
 						<a class="btn btn-sm btn-outline-primary ml-1" href="${pageContext.request.contextPath}/users/private/info.do">개인정보</a>
 						<a class="btn btn-sm btn-outline-danger ml-1" href="${pageContext.request.contextPath}/users/logout.do">로그아웃</a>
 					</c:when>
@@ -47,4 +48,3 @@
 	    </nav>
 	</div>
 </div>
-	

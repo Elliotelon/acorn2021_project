@@ -22,7 +22,7 @@ public class GalleryServiceImpl implements GalleryService{
 	@Override
 	public void getList(ModelAndView mView, HttpServletRequest request) {
 		//한 페이지에 몇개씩 표시할 것인지
-		final int PAGE_ROW_COUNT=4;
+		final int PAGE_ROW_COUNT=8;
 		//하단 페이지를 몇개씩 표시할 것인지
 		final int PAGE_DISPLAY_COUNT=5;
 		

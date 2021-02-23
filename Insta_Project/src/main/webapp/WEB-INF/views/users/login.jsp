@@ -12,16 +12,18 @@
 	<h1>알림</h1>
 	<c:choose>
 		<c:when test="${requestScope.isValid}">
-			<p>
-				<strong>${sessionScope.id}</strong>님 로그인 되었습니다.
-				<a href="${requestScope.url}">확인</a>
-			</p>
+			<script>
+				alert("로그인 되었습니다.");
+				location.href="${pageContext.request.contextPath}";
+			</script>	
+			
 		</c:when>
 		<c:otherwise>
-			<p>
-				아이디 혹은 비밀번호가 틀려요!
-				<a href="loginform.do?url=${encodedUrl}">다시시도</a>
-			</p>
+			<script>
+				alert("아이디 혹은 비밀번호를 확인해주세요.");
+				location.href="${pageContext.request.contextPath}/users/loginform.do?url=${encodedUrl}";
+			</script>	
+			
 		</c:otherwise>
 	</c:choose>
 </div>
