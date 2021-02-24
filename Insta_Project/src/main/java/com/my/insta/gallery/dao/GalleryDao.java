@@ -11,6 +11,7 @@ public interface GalleryDao {
 	public void insert(GalleryDto dto);
 	public List<GalleryDto> getList(GalleryDto dto);
 	public int getCount(GalleryDto dto);
+	
 }
 
 

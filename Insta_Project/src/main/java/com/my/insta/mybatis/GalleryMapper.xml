@@ -3,13 +3,13 @@
 <mapper namespace="gallery">
 	<insert id="insert" parameterType="galleryDto">
 		INSERT INTO mk_gallery
-		(num, writer, caption, imagePath, regdate)
-		VALUES(mk_gallery_seq.NEXTVAL, #{writer}, #{caption}, #{imagePath},SYSDATE)
+		(num, writer,content, caption, imagePath, regdate)
+		VALUES(mk_gallery_seq.NEXTVAL, #{writer},#{content}, #{caption}, #{imagePath},SYSDATE)
 	</insert>
 	<select id="getData" parameterType="int" resultType="galleryDto">
 		SELECT * 
 		FROM
-			(SELECT num, writer, caption, imagePath, regdate,
+			(SELECT num, writer,content, caption, imagePath, regdate,
 				LAG(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum, 
 				LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum 
 			FROM mk_gallery 

@@ -61,6 +61,7 @@ CREATE TABLE mk_gallery(
 	num NUMBER PRIMARY KEY, --이미지번호
 	writer VARCHAR2(30), --작성자
 	caption VARCHAR2(500), --설명
+	content CLOB, -- 스마트에디터
 	imagepath VARCHAR2(100), --이미지경로
 	regdate DATE --날짜
 );

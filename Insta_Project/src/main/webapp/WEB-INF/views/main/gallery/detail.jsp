@@ -96,15 +96,8 @@
 </style>
 </head>
 <body>
-<div class="container" id="con">
-	<div class="card mb-3">
-		<img class="card-img-top" src="${pageContext.request.contextPath }${dto.imagePath}"/>
-		<div class="card-body">
-			<p class="card-text">${dto.caption }</p>
-			<p class="card-text">by <strong>${dto.writer }</strong></p>
-			<p><small>${dto.regdate }</small></p>
-		</div>
-	</div>
+<div class="container" id="con">	
+	<div>${dto.content }</div>
 	<nav>
 		<ul class="pagination justify-content-center">
 			<c:choose>
