@@ -30,7 +30,6 @@
 </head>
 <body>
 <div class="container" id="con">
-	<h1>가입정보 수정 폼 입니다.</h1>
 	<a id="profileLink" href="javascript:">
 		<c:choose>
 			<c:when test="${empty dto.profile }">
