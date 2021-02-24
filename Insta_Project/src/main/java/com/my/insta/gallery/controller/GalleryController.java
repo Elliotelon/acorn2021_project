@@ -26,7 +26,6 @@ public class GalleryController {
 	@RequestMapping("/main/gallery/list.do")
 	public ModelAndView list(ModelAndView mView, HttpServletRequest request) {
 		service.getList(mView, request);
-		
 		mView.setViewName("/main/gallery/list");
 		
 		return mView;

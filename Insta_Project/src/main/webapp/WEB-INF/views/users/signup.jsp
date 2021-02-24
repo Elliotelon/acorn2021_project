@@ -8,8 +8,10 @@
 </head>
 <body>
 <div class="container">
-	<h1>알림</h1>
-	<p> <strong>${requestScope.dto.id}</strong> 님 회원 가입 되었습니다. <a href="${pageContext.request.contextPath}/users/loginform.do">로그인 하러 가기</a></p>
+	<script>
+		alert("회원가입 되었습니다.");
+		location.href="${pageContext.request.contextPath}/users/loginform.do";
+	</script>	
 </div>
 </body>
 </html>
