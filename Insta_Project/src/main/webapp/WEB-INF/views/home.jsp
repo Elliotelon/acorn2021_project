@@ -66,17 +66,17 @@
 	    <div class="col-md-6">
 	      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 	        <div class="col p-4 d-flex flex-column position-static">
-	          <strong class="d-inline-block mb-2 text-primary">New</strong>
-	          <h3 class="mb-0">card holder</h3>
+	          <strong class="d-inline-block mb-2 text-primary">추천</strong>
+	          <h3 class="mb-0">칠리새우</h3>
 	          <ul class="card-text mt-3">
-	          	<li>Fabrics:Calfskin 100%</li>
-	          	<li>Color:Black</li>
-	          	<li>Care instructions:Dry Clean</li> 
+	          	<li>소개 : 피크닉용 쉬림프박스</li>
+	          	<li>맛 : 달콤함, 매콤함</li>
+	          	<li>비용 : 6,000원</li> 
 	          </ul>
 	        </div>
 	        <div class="col-md-4 d-none d-lg-block img-wrapper">
-	        	<a href="...">        	
-		        	<img class="card-img-top" src="..."/>
+	        	<a href="main/gallery/comment.do?num=42">        	
+		        	<img class="card-img-top" src="${pageContext.request.contextPath }/resources/images/food_chilly0.png"/>
 	        	</a>
 	        </div>
 	      </div>
@@ -84,17 +84,17 @@
 		<div class="col-md-6">
 			<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 			  	<div class="col p-4 d-flex flex-column position-static">
-			    	<strong class="d-inline-block mb-2 text-danger">Hot</strong>
-			    	<h3 class="mb-0">Shoes</h3>
+			    	<strong class="d-inline-block mb-2 text-danger">인기</strong>
+			    	<h3 class="mb-0">소시지 콩나물찜</h3>
 			    	<ul class="card-text mt-3">
-			        	<li>Fabrics:real cowskin 100%</li>
-			          	<li>Color:Black</li>
-			          	<li>Care instructions: Washing Machine</li> 
+			        	<li>소개 : 백주부의 소시지 콩나물찜</li>
+			          	<li>맛 : 아삭함, 칼칼함</li>
+			          	<li>비용 : 7,500원 </li> 
 			       	</ul>
 			  	</div>
 			  	<div class="col-md-4 d-none d-lg-block img-wrapper">
-			  		<a href="...">
-		          		<img class="card-img-top" src="..."/>
+			  		<a href="main/gallery/comment.do?num=44">
+		          		<img class="card-img-top" src="${pageContext.request.contextPath }/resources/images/food_socong0.png"/>
 			  		</a>
 	        	</div>
 			</div>
