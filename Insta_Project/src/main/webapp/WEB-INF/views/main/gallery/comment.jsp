@@ -100,7 +100,7 @@
 		<!-- 원글의 작성자가 댓글의 수신자가 된다. -->
 		<input type="hidden" name="target_id" value="${dto.writer }"/>
 		<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다</c:if></textarea>
-		<button type="submit">등록</button>
+		<button class="btn btn-outline-success" type="submit">등록</button>
 	</form>	
 	<!-- 댓글 목록 -->
 	<div class="comments">

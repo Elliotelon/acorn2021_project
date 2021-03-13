@@ -201,7 +201,7 @@
 								<input type="hidden" name="comment_group"
 									value="${tmp.comment_group }"/>
 								<textarea name="content"></textarea>
-								<button type="submit">등록</button>
+								<button class="btn btn-outline-success" type="submit">등록</button>
 							</form>
 							<!-- 로그인된 아이디와 댓글의 작성자가 같으면 수정 폼 출력 -->
 							<c:if test="${tmp.writer eq id }">
@@ -209,7 +209,7 @@
 									action="private/comment_update.do" method="post">
 									<input type="hidden" name="num" value="${tmp.num }"/>
 									<textarea name="content">${tmp.content }</textarea>
-									<button type="submit">수정</button>
+									<button class="btn btn-outline-info" type="submit">수정</button>
 								</form>
 							</c:if>
 						</li>						

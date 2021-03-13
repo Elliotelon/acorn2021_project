@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>/cafe/private/updateform.jsp</title>
 <jsp:include page="../../../include/resource.jsp"></jsp:include>
-<jsp:include page="../../../include/blogbasic2.jsp"></jsp:include>
+<jsp:include page="../../../include/blogbasic.jsp"></jsp:include>
 </head>
 <body>
 <div class="container">
@@ -28,10 +28,11 @@
 			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
 		</div>
 		<!-- 클릭했을때 smarteditor의 submitContents(this)함수 실행되도록 설정 -->
-		<button type="submit" onclick="submitContents(this);">수정확인</button>
-		<button type="reset">취소</button>
+		<button class="btn btn-success" type="submit" onclick="submitContents(this);">수정</button>
+		<button class="btn btn-warning" type="reset">취소</button>
 	</form>
 </div>
 <jsp:include page="../../../include/smarteditor.jsp"></jsp:include>
 </body>
+<jsp:include page="../../../include/blogfooter.jsp"></jsp:include>
 </html>

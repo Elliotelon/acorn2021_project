@@ -103,4 +103,5 @@
 	</form>
 </div>
 </body>
+<jsp:include page="../../include/blogfooter.jsp"></jsp:include>
 </html>
