@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 // web.xml 필터 설정 대신에 annotation 을 활용해서 필터를 동작하게 할수도 있다.
-@WebFilter(urlPatterns = {"/users/private/*","/main/file/private/*","/main/gallery/private/*"})
+@WebFilter(urlPatterns = {"/users/private/*","/main/file/private/*","/main/gallery/private/*","/main/cafe/private/*"})
 public class LoginFilter implements Filter{
 
 	@Override
