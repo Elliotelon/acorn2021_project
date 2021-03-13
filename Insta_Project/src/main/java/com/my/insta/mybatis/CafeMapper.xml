@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cafe">
+	<update id="update" parameterType="cafeDto">
+		UPDATE mk_board_cafe
+		SET title=#{title}, content=#{content}
+		WHERE num=#{num}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM mk_board_cafe
+		WHERE num=#{num}
+	</delete>
+	<update id="addViewCount" parameterType="int">
+		UPDATE mk_board_cafe
+		SET viewCount=viewCount+1
+		WHERE num=#{num}
+	</update>
+	
+	<select id="getCount" parameterType="cafeDto" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM mk_board_cafe
+		<choose>
+			<when test="title != null and content != null">
+				WHERE title LIKE '%'||#{title}||'%' 
+				OR content LIKE '%'||#{content}||'%'
+			</when>
+			<when test="title != null">
+				WHERE title LIKE '%'||#{title}||'%'
+			</when>
+			<when test="writer != null">
+				WHERE writer LIKE '%'||#{writer}||'%'
+			</when>
+		</choose>		
+	</select>
+
+	<select id="getList" parameterType="cafeDto" resultType="cafeDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM AS rnum
+			FROM
+				(SELECT num,writer,title,content,viewCount,regdate
+				FROM mk_board_cafe
+				<choose>
+					<when test="title != null and content != null">
+						WHERE title LIKE '%'||#{title}||'%' 
+						OR content LIKE '%'||#{content}||'%'
+					</when>
+					<when test="title != null">
+						WHERE title LIKE '%'||#{title}||'%'
+					</when>
+					<when test="writer != null">
+						WHERE writer LIKE '%'||#{writer}||'%'
+					</when>
+				</choose>
+				ORDER BY num DESC) result1)
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+
+	<insert id="insert" parameterType="cafeDto">
+		INSERT INTO mk_board_cafe
+		(num, writer, title, content, viewCount, regdate)
+		VALUES(mk_board_cafe_seq.NEXTVAL, #{writer}, 
+			#{title}, #{content}, 0, SYSDATE)
+	</insert>
+	<select id="getData" parameterType="int" resultType="cafeDto">
+		SELECT num,writer,title,content,viewCount,regdate
+		FROM mk_board_cafe
+		WHERE num=#{num}
+	</select>
+</mapper>

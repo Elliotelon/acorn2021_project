@@ -45,7 +45,7 @@
    	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }">home</a>
 	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/gallery/list.do">gallery</a>
 	      <a class="p-2 text-muted" href="${pageContext.request.contextPath}/main/file/list.do">file</a>
-	      <a class="p-2 text-muted" href="#">주문조회</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/cafe/list.do">cafe</a>
 	    </nav>
 	</div>
 </div>
