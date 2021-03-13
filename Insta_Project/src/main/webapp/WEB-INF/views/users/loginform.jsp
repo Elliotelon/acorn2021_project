@@ -60,7 +60,9 @@
 	<%-- 원래 가려던 목적지 정보를 url 이라는 파라미터 명으로 전송될수 있도록 한다. --%>
 	<input type="hidden" name="url" value="${requestScope.url}"/>
 	<div class="text-center mb-3">
-        <h1 class="blog-header-logo text-dark">#HashTag</h1>
+		<a href="${pageContext.request.contextPath }/home.do">
+			<h1 class="blog-header-logo text-dark">#HashTag</h1>		
+		</a>
     </div>
   	
   	<label for="id" class="sr-only">아이디</label>
