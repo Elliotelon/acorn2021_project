@@ -93,7 +93,7 @@
 </style>
 </head>
 <body>
-<div class="container">	
+<div class="container">
 	<table class="table table-bordered">
 		<tr>
 			<th>글번호</th>
@@ -272,7 +272,7 @@
 		var isDelete=confirm("댓글을 삭제 하시겠습니까?");
 		if(isDelete){
 			location.href="${pageContext.request.contextPath }"+
-			"/main/cafe/private/comment_delete.do?num="+num+"&ref_group=${dto.num}";
+			"/main/notice/private/comment_delete.do?num="+num+"&ref_group=${dto.num}";
 		}
 	});
 	//답글 달기 링크를 클릭했을때 실행할 함수 등록
@@ -297,7 +297,7 @@
 		if(isLogin == false){
 			alert("로그인 페이지로 이동합니다.")
 			location.href="${pageContext.request.contextPath }/users/loginform.do?"+
-					"url=${pageContext.request.contextPath }/cafe/detail.do?num=${dto.num}";
+					"url=${pageContext.request.contextPath }/main/notice/detail.do?num=${dto.num}";
 			return false; //폼 전송 막기 		
 		}
 	});

@@ -27,6 +27,21 @@ CREATE TABLE mk_notice(
 --mk_notice 테이블 시퀀스
 CREATE SEQUENCE mk_notice_seq;
 
+--mk_notice_comment 테이블(댓글)
+CREATE TABLE mk_notice_comment(
+	num NUMBER PRIMARY KEY, --댓글의 글번호
+	writer VARCHAR2(30), --작성자
+	content VARCHAR2(500), --내용
+	target_id VARCHAR2(30), --댓글 대상자의 아이디
+	ref_group NUMBER, --원글의 글번호
+	comment_group NUMBER, --댓글의 그룹번호
+	deleted CHAR(3) DEFAULT 'no', --삭제된 댓글인지 여부 'yes' or 'no'
+	regdate DATE --댓글 작성일
+);
+
+--mk_notice_comment 테이블 시퀀스
+CREATE SEQUENCE mk_notice_comment_seq;
+
 --mk_comment 테이블(댓글)
 CREATE TABLE mk_comment(
 	num NUMBER PRIMARY KEY, --댓글의 글번호

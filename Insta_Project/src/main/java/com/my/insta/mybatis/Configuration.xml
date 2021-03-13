@@ -10,6 +10,8 @@
 		<typeAlias type="com.my.insta.file.dto.FileDto" alias="fileDto"/>
 		<typeAlias type="com.my.insta.cafe.dto.CafeDto" alias="cafeDto"/>
 		<typeAlias type="com.my.insta.cafe.dto.CafeCommentDto" alias="cafeCommentDto"/>
+		<typeAlias type="com.my.insta.notice.dto.NoticeDto" alias="noticeDto"/>
+		<typeAlias type="com.my.insta.notice.dto.NoticeCommentDto" alias="noticeCommentDto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/my/insta/mybatis/UsersMapper.xml"/>
@@ -18,5 +20,7 @@
 		<mapper resource="com/my/insta/mybatis/FileMapper.xml"/>
 		<mapper resource="com/my/insta/mybatis/CafeMapper.xml"/>
 		<mapper resource="com/my/insta/mybatis/CafeCommentMapper.xml"/>
+		<mapper resource="com/my/insta/mybatis/NoticeMapper.xml"/>
+		<mapper resource="com/my/insta/mybatis/NoticeCommentMapper.xml"/>
 	</mappers>
 </configuration>

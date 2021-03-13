@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeComment">
+	<select id="getList" parameterType="noticeCommentDto" resultType="noticeCommentDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM AS rnum
+			FROM
+				(SELECT num, writer, content, target_id, ref_group,
+					comment_group, deleted, mk_notice_comment.regdate, profile
+				FROM mk_notice_comment
+				INNER JOIN mk_users
+				ON mk_notice_comment.writer=mk_users.id
+				WHERE ref_group=#{ref_group}
+				ORDER BY comment_group DESC, num ASC) result1)
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}	
+	</select>	
+	<insert id="insert" parameterType="noticeCommentDto">
+		INSERT INTO mk_notice_comment
+		(num, writer, content, target_id, ref_group, comment_group, regdate)
+		VALUES(#{num}, #{writer}, #{content}, #{target_id}, #{ref_group},
+			#{comment_group}, SYSDATE)
+	</insert>
+	<update id="update" parameterType="noticeCommentDto">
+		UPDATE mk_notice_comment
+		SET content=#{content}
+		WHERE num=#{num}
+	</update>
+	<update id="delete" parameterType="int">
+		UPDATE mk_notice_comment
+		SET deleted='yes'
+		WHERE num=#{num}
+	</update>
+	<select id="getSequence" resultType="int">
+		SELECT mk_notice_comment_seq.NEXTVAL
+		FROM DUAL
+	</select>
+	<select id="getData" parameterType="int" resultType="noticeCommentDto">
+		SELECT num,writer,content,ref_group,comment_group,deleted,regdate
+		FROM mk_notice_comment
+		WHERE num=#{num}
+	</select>
+	<select id="getCount" parameterType="int" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM mk_notice_comment
+		WHERE ref_group=#{ref_group}
+	</select>
+</mapper>
