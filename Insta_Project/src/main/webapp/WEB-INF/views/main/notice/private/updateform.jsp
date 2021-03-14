@@ -6,12 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>/cafe/private/updateform.jsp</title>
+<style>
+	#con{
+		margin-top:10rem;
+	}
+</style>
 <jsp:include page="../../../include/resource.jsp"></jsp:include>
 <jsp:include page="../../../include/blogbasic.jsp"></jsp:include>
 </head>
 <body>
-<div class="container">
-	<h1>글 수정 폼 입니다.</h1>
+<div class="container" id="con">
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
 		<div class="form-group">

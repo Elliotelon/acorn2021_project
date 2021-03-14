@@ -5,11 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>/cafe/private/insertform.jsp</title>
+<style>
+	#con{
+		margin-top:10rem;
+	}
+</style>
 <jsp:include page="../../../include/resource.jsp"></jsp:include>
 <jsp:include page="../../../include/blogbasic2.jsp"></jsp:include>
 </head>
 <body>
-<div class="container">
+<div class="container" id="con">
 	<h1>새글 작성 폼 입니다.</h1>
 	<form action="insert.do" method="post">
 		<div class="form-group">

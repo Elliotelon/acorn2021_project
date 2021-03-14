@@ -11,11 +11,13 @@
 	.form-group{
 		width:10rem;
 	}
+	#con{
+		margin-top:10rem;
+	}
 </style>
 </head>
 <body>
-<div class="container">
-	<h1>파일 업로드 폼 입니다.</h1>
+<div class="container" id="con">
 	<%--
 		[ 파일 업로드 폼 작성법 ]
 		1. method="post"
