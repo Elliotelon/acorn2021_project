@@ -91,7 +91,7 @@
 		display: none; /* 일단 숨겨 놓기 */
 	}	
 	#con{
-		margin-top:5rem;
+		margin-top:10rem;
 	}
 </style>
 </head>

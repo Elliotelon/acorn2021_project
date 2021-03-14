@@ -9,7 +9,7 @@
 <jsp:include page="../include/blogbasic.jsp"></jsp:include>
 <style>
 	#con{
-		margin-top:5rem;
+		margin-top:10rem;
 	}
 	.form-group{
 		width:20rem;

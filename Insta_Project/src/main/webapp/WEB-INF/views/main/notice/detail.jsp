@@ -90,10 +90,13 @@
 		z-index: 1000;
 		display: none; /* 일단 숨겨 놓기 */
 	}	
+	#con{
+		margin-top:10rem;
+	}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container" id="con">
 	<table class="table table-bordered">
 		<tr>
 			<th>글번호</th>
