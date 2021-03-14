@@ -19,7 +19,9 @@
 	        	<a class="text-muted" href="#"></a>
 	      	</div>
 	      	<div class="col-4 text-center">
-	        	<a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/home.do">#HashTag</a>
+	        	<a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/home.do">
+					<img style="width : 100px; height : 100px;" src="${pageContext.request.contextPath}/resources/images/main_logo.png" />	        	
+	        	</a>
 	      	</div>
 	      	<div class="col-4 d-flex justify-content-end align-items-center">
 	        	<a class="text-muted" href="#" aria-label="Search">
@@ -41,11 +43,11 @@
 	</header>
 	<div class="nav-scroller py-1 mb-2">
 	    <nav class="nav d-flex justify-content-between">
-	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }">home</a>
-	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/gallery/list.do">gallery</a>
-	      <a class="p-2 text-muted" href="${pageContext.request.contextPath}/main/file/list.do">file</a>
-	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/cafe/list.do">cafe</a>
-	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/notice/list.do">notice</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }">홈</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/gallery/list.do">레시피</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath}/main/file/list.do">자료실</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/cafe/list.do">Q&A</a>
+	      <a class="p-2 text-muted" href="${pageContext.request.contextPath }/main/notice/list.do">공지사항</a>
 	    </nav>
 	</div>
 </div>

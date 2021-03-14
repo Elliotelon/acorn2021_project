@@ -151,7 +151,14 @@
 	}	
 	
 	#con{
-		margin-top:5rem;
+		margin-top:10rem;
+	}
+	a#MOVE_TOP_BTN {
+	    position: fixed;
+	    right: 2%;
+	    bottom: 50px;
+	    display: none;
+	    z-index: 999;
 	}
 </style>
 </head>
@@ -178,11 +185,36 @@
 		</c:forEach>
 	</div>	
 </div>
+ <!-- 맨 위로 가기 버튼 링크 생성, 이미지의 크기와 이미지가 존재하는 경로 설정 -->   
+   <a id="MOVE_TOP_BTN" href="#"><img style="width:60px;height:60px" 
+               src="${pageContext.request.contextPath }/resources/images/main_up.png"/>
+   </a>
+<!-- 
+   맨 위로 가기 버튼이 부드럽게 동작하기 위한 설정
+   스크롤 위치에 따라 화면에서 맨위로 올라가는 버튼이 나타나고, 사라지도록하고
+   animation을 걸어서 화면 맨위로 이동하도록 설정
+ -->
 <div class="back-drop">
 	<img src="${pageContext.request.contextPath }/svg/spinner-solid.svg"/>
 </div>
 <script src="${pageContext.request.contextPath }/resources/js/jquery.form.min.js"></script>
 <script>
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 50) {
+	            $('#MOVE_TOP_BTN').fadeIn();
+	        } else {
+	            $('#MOVE_TOP_BTN').fadeOut();
+	        }
+	    });
+	     
+	    $("#MOVE_TOP_BTN").click(function() {
+	        $('html, body').animate({
+	            scrollTop : 0
+	        }, 400);
+	        return false;
+	    });
+	});
 	//댓글 스크립트
 	
 	// card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 

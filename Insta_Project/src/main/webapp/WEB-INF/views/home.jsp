@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Jekyll v4.1.1">
-<title>#HashTag</title>
+<title>식소담</title>
 <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
 <!-- Bootstrap core CSS -->
 <jsp:include page="include/resource.jsp"></jsp:include>
@@ -28,10 +28,17 @@
 		
 	}
 	#con{
-		margin-top:5rem;
+		margin-top:10rem;
 	}
 	.jumbotrom{
 		background-color:red;
+	}
+	a#MOVE_TOP_BTN {
+	    position: fixed;
+	    right: 2%;
+	    bottom: 50px;
+	    display: none;
+	    z-index: 999;
 	}
 </style>
 </head>
@@ -100,8 +107,35 @@
 			</div>
 		</div>
   	</div>
-
 </div>
+  <!-- 맨 위로 가기 버튼 링크 생성, 이미지의 크기와 이미지가 존재하는 경로 설정 -->   
+   <a id="MOVE_TOP_BTN" href="#"><img style="width:60px;height:60px" 
+               src="${pageContext.request.contextPath }/resources/images/main_up.png"/>
+   </a>
+<!-- 
+   맨 위로 가기 버튼이 부드럽게 동작하기 위한 설정
+   스크롤 위치에 따라 화면에서 맨위로 올라가는 버튼이 나타나고, 사라지도록하고
+   animation을 걸어서 화면 맨위로 이동하도록 설정
+ -->
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+         
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+</script>
 </body>
+
 <jsp:include page="include/blogfooter.jsp"></jsp:include>
 </html>

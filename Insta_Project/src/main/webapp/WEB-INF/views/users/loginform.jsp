@@ -61,7 +61,9 @@
 	<input type="hidden" name="url" value="${requestScope.url}"/>
 	<div class="text-center mb-3">
 		<a href="${pageContext.request.contextPath }/home.do">
-			<h1 class="blog-header-logo text-dark">#HashTag</h1>		
+			<h1 class="blog-header-logo text-dark">
+				<img style="width : 100px; height : 100px;" src="${pageContext.request.contextPath}/resources/images/main_logo.png" />
+			</h1>		
 		</a>
     </div>
   	
