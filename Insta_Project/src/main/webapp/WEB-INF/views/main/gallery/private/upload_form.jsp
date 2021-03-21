@@ -14,8 +14,7 @@
 </style>
 </head>
 <body>
-<div class="container">
-	<h1>이미지 업로드 폼</h1>
+<div class="container" id="con">
 	<form action="upload.do" method="post" enctype="multipart/form-data">
 		<div class="form-group" id="caption">
 			<label for="caption">설명</label>
