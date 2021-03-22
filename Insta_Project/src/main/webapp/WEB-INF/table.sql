@@ -5,10 +5,6 @@ CREATE TABLE mk_users(
 	email VARCHAR2(100), --이메일
 	profile VARCHAR2(200), --프로필
 	regdate DATE, --날짜
-	name VARCHAR2(100), --이름
-	tel VARCHAR2(100), --전화번호
-	gender VARCHAR2(100), --성별
-	addr VARCHAR2(200) --주소(우편번호)
 );
 
 --mk_users 테이블 시퀀스
