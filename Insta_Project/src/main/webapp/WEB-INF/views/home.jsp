@@ -49,13 +49,19 @@
     	<div id="carouselExampleFade" class="img-wrapper carousel slide carousel-fade" data-ride="carousel">
 		  <div class="carousel-inner img-wrapper ">
 		    <div class="carousel-item img-wrapper active">
-		      <img src="${pageContext.request.contextPath }/resources/images/main_pic1.png" class="d-block w-100 h-100  " >
+		    	<a href="https://www.youtube.com/watch?v=qWbHSOplcvY">
+			      <img src="${pageContext.request.contextPath }/resources/images/main_pic1.png" class="d-block w-100 h-100  " >		    	
+		    	</a>
 		    </div>
 		    <div class="carousel-item img-wrapper">
-		      <img src="${pageContext.request.contextPath }/resources/images/main_pic2.png" class="d-block w-100 h-100" >
+		    	<a href="https://www.youtube.com/watch?v=v32NjYn5pSc">
+			      <img src="${pageContext.request.contextPath }/resources/images/main_pic2.png" class="d-block w-100 h-100" >
+		    	</a>
 		    </div>
 		    <div class="carousel-item img-wrapper">
-		      <img src="${pageContext.request.contextPath }/resources/images/main_pic3.png" class="d-block w-100 h-100">
+		    	<a href="https://www.youtube.com/watch?v=eeiqjyYgPew">
+			      <img src="${pageContext.request.contextPath }/resources/images/main_pic3.png" class="d-block w-100 h-100">		    	
+		    	</a>
 		    </div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
